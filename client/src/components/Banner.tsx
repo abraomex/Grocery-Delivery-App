@@ -1,0 +1,35 @@
+import { TruckIcon, XIcon } from "lucide-react";
+import { useState } from "react";
+
+
+const Banner = () => {
+    const [bannerVisible, setBannerVisible] = useState(()=> {
+        return sessionStorage.getItem("banner_dismissed") !== "true"
+    });
+    const dissmissBanner = () => {
+        setBannerVisible(false);
+        sessionStorage.setItem("banner_dismissed", "true");
+    }
+
+    
+
+    return (
+
+    <div>
+       {bannerVisible && (
+        <div className="bg-linear-to-r from-app-green via-emerald-800 to-app-green text-white text-xs sm:text-sm relative overflow-hidden">
+            <div className="max-w-7xl mx-auto px-4 py-2 sm:px-6 lg:px-8 py-2 flex-center gap-6 ">
+                <div>
+                    <TruckIcon className="size-4 sm:size-5" />
+                </div>
+            </div>
+            <button onClick={dissmissBanner} className="absolute  right-2 top-1/2 -translate-y-1/2 p-1 hover:bg-white/10 rounded-full transition-colors ">
+                <XIcon className="size-3.5"/>
+            </button>
+        </div>
+      )}
+    </div>
+  )
+}
+
+export default Banner
