@@ -20,6 +20,7 @@ const Navbar = () => {
     cartCount: 5,
     setIsCartOpen: (_data: any) => {},
   };
+  
   const [searchQuery, setSearchQuery] = useState("");
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const navigate = useNavigate();
